@@ -1,0 +1,51 @@
+@Component
+
+	@Service
+		Solo para indicar que esta parte tendra the business logic en la applicacion
+		//public class ProductService 
+		introducir objeto de la clase 
+		
+
+		@Autowired
+			Injecta una dependencia de los componentes automaticamente 
+			inicializa objetos por ti
+			Antes del constructor (recomendado): Resuelve todos los parámetros que recibe desde su
+			instanciación.
+			Previo al setter: Usará el setter para inyectar la dependencia y solo usará los que tengan la
+			anotación.
+			Previo al atributo: No es recomendable, porque solo resuelve la inyección de dicho atributo.
+
+		Podemos acceder al repositorio de la clase
+		Con autowired inyecta el repositorio correspondiente
+		@Autowired 
+		CategoryRepository repository; (Ya hay un repositorio creado)
+		public List<Category>
+
+	@Repository
+		DAO 
+		database CRUD operations
+		en teoria accede facilmente a la base de datos
+			findAll();
+			save(type);
+			public void createCategory(Category category){repository.save(category)}
+		//public interface XRepository extends JpaRepository<Client, Integer>
+
+	@Controller
+	@RestController
+		Para retornar siempre con json
+
+	@Bean 
+		construccion manual de ciertas instancias complejas
+
+	@Entity
+		Indica que la clase se puede colocar en una tabla
+
+		@GeneratedValue
+			Generalmente va acompanhado de @Id creara variables unicas 
+			.IDENTITY  segun los numeros
+			.AUTO automaticamente selecciona la generacion apropiada segun tu base de datos
+
+	@Table
+		Especificar los detalles de una tabla de base de datos:
+		nombre de la tabla, esquema, nidices
+		 @Table (name = "employees")
